@@ -376,93 +376,40 @@
       flex: 1;
     }
 
-    .users-modal-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.85);
-      z-index: 100;
+    /* Tab Content Styles */
+    .tab-content {
       display: none;
-      align-items: flex-end;
-      justify-content: center;
     }
 
-    .users-modal-overlay.active {
-      display: flex;
-    }
-
-    .users-modal {
-      width: 100%;
-      max-width: 600px;
-      height: 92vh;
-      background: var(--bg-secondary);
-      border: 1px solid var(--border);
-      border-radius: 16px 16px 0 0;
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-    }
-
-    .users-modal-header {
-      padding: 12px 14px;
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .users-modal-header h3 {
-      font-size: 15px;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .users-modal-header h3 svg {
-      width: 18px;
-      height: 18px;
-      color: var(--accent);
-    }
-
-    .close-modal-btn {
-      width: 32px;
-      height: 32px;
-      border-radius: 6px;
-      background: rgba(239, 68, 68, 0.1);
-      border: 1px solid rgba(239, 68, 68, 0.2);
-      color: var(--danger);
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .close-modal-btn:active {
-      background: var(--danger);
-      color: white;
+    .tab-content.active {
+      display: block;
     }
 
     .search-filter-bar {
-      padding: 10px 12px;
-      border-bottom: 1px solid var(--border);
+      padding: 12px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      margin-bottom: 12px;
       display: flex;
       gap: 8px;
-      background: rgba(0, 0, 0, 0.15);
+      flex-wrap: wrap;
     }
 
     .search-box {
       flex: 1;
+      min-width: 200px;
       position: relative;
     }
 
     .search-box input {
       width: 100%;
-      padding: 8px 10px 8px 32px;
+      padding: 10px 12px 10px 36px;
       background: rgba(0, 0, 0, 0.3);
       border: 1px solid var(--border);
       border-radius: 6px;
       color: var(--fg);
-      font-size: 12px;
+      font-size: 13px;
     }
 
     .search-box input:focus {
@@ -472,42 +419,57 @@
 
     .search-box svg {
       position: absolute;
-      left: 10px;
+      left: 12px;
       top: 50%;
       transform: translateY(-50%);
-      width: 14px;
-      height: 14px;
+      width: 16px;
+      height: 16px;
       color: var(--muted);
     }
 
     .filter-select {
-      padding: 8px 10px;
+      padding: 10px 12px;
       background: rgba(0, 0, 0, 0.3);
       border: 1px solid var(--border);
       border-radius: 6px;
       color: var(--fg);
-      font-size: 12px;
+      font-size: 13px;
       cursor: pointer;
+      min-width: 120px;
     }
 
-    .users-modal-body {
-      flex: 1;
-      overflow-y: auto;
-      -webkit-overflow-scrolling: touch;
-      padding: 10px;
+    .users-section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .users-section-header h3 {
+      font-size: 16px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .users-section-header h3 svg {
+      width: 18px;
+      height: 18px;
+      color: var(--accent);
     }
 
     .users-grid {
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 10px;
     }
 
     .user-card {
       background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 12px;
+      border-radius: 10px;
+      padding: 14px;
     }
 
     .user-card.expired {
@@ -518,28 +480,35 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
       gap: 8px;
+      flex-wrap: wrap;
     }
 
     .user-id {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
+      font-size: 12px;
       color: var(--accent);
       background: rgba(6, 214, 160, 0.1);
-      padding: 3px 8px;
+      padding: 4px 10px;
       border-radius: 4px;
       cursor: pointer;
       word-break: break-all;
+    }
+
+    .user-badges {
+      display: flex;
+      gap: 6px;
+      align-items: center;
     }
 
     .status-badge {
       display: inline-flex;
       align-items: center;
       gap: 4px;
-      padding: 3px 8px;
+      padding: 4px 10px;
       border-radius: 12px;
-      font-size: 9px;
+      font-size: 10px;
       font-weight: 600;
       text-transform: uppercase;
     }
@@ -556,9 +525,9 @@
 
     .plan-badge {
       display: inline-flex;
-      padding: 3px 8px;
+      padding: 4px 10px;
       border-radius: 4px;
-      font-size: 9px;
+      font-size: 10px;
       font-weight: 700;
       text-transform: uppercase;
     }
@@ -590,37 +559,38 @@
     .user-info {
       display: flex;
       flex-direction: column;
-      gap: 4px;
-      margin-bottom: 8px;
+      gap: 6px;
+      margin-bottom: 10px;
     }
 
     .info-row {
       display: flex;
       align-items: center;
       gap: 8px;
-      font-size: 11px;
+      font-size: 12px;
     }
 
     .info-row .label {
       color: var(--muted);
-      min-width: 50px;
-      font-size: 10px;
+      min-width: 60px;
+      font-size: 11px;
     }
 
     .info-row .value {
       font-family: 'JetBrains Mono', monospace;
       color: var(--fg);
       word-break: break-all;
-      font-size: 11px;
+      font-size: 12px;
     }
 
     .copy-btn {
-      padding: 3px 6px;
+      padding: 4px 8px;
       background: rgba(100, 116, 139, 0.1);
       border: none;
       border-radius: 4px;
       color: var(--muted);
       cursor: pointer;
+      transition: all 0.15s;
     }
 
     .copy-btn:active {
@@ -629,45 +599,46 @@
     }
 
     .countdown-section {
-      margin-top: 8px;
-      padding-top: 8px;
+      margin-top: 10px;
+      padding-top: 10px;
       border-top: 1px solid var(--border);
     }
 
     .countdown-label {
-      font-size: 9px;
+      font-size: 10px;
       color: var(--muted);
       text-transform: uppercase;
       letter-spacing: 0.03em;
-      margin-bottom: 6px;
+      margin-bottom: 8px;
     }
 
     .countdown-display {
       display: flex;
-      gap: 6px;
+      gap: 8px;
+      flex-wrap: wrap;
     }
 
     .countdown-unit {
       background: rgba(0, 0, 0, 0.4);
-      border-radius: 6px;
-      padding: 6px 10px;
+      border-radius: 8px;
+      padding: 8px 12px;
       text-align: center;
-      min-width: 52px;
+      min-width: 56px;
     }
 
     .countdown-unit .number {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 16px;
+      font-size: 18px;
       font-weight: 700;
       color: var(--fg);
       line-height: 1;
     }
 
     .countdown-unit .text {
-      font-size: 8px;
+      font-size: 9px;
       color: var(--muted);
       text-transform: uppercase;
-      margin-top: 2px;
+      margin-top: 3px;
     }
 
     .countdown-unit.danger .number {
@@ -677,36 +648,40 @@
     .expired-badge {
       background: var(--danger);
       color: white;
-      padding: 6px 10px;
-      border-radius: 6px;
+      padding: 8px 12px;
+      border-radius: 8px;
       font-weight: 600;
-      display: flex;
+      display: inline-flex;
       align-items: center;
       gap: 6px;
-      font-size: 11px;
+      font-size: 12px;
     }
 
     .user-actions {
       display: flex;
       gap: 8px;
-      margin-top: 10px;
+      margin-top: 12px;
+      flex-wrap: wrap;
     }
 
     .empty-state {
       text-align: center;
-      padding: 40px 20px;
+      padding: 60px 20px;
       color: var(--muted);
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
     }
 
     .empty-state svg {
-      width: 48px;
-      height: 48px;
-      margin-bottom: 12px;
+      width: 56px;
+      height: 56px;
+      margin-bottom: 16px;
       opacity: 0.5;
     }
 
     .empty-state p {
-      font-size: 14px;
+      font-size: 15px;
     }
 
     .toast-container {
@@ -760,13 +735,6 @@
     @media (min-width: 640px) {
       .main-container { padding: 20px; }
       
-      .users-modal {
-        height: 85vh;
-        max-width: 550px;
-        border-radius: 12px;
-        margin: auto;
-      }
-      
       .stats-grid {
         gap: 10px;
       }
@@ -778,11 +746,21 @@
       .stat-card .value {
         font-size: 24px;
       }
+
+      .user-card {
+        padding: 16px;
+      }
+
+      .search-filter-bar {
+        flex-wrap: nowrap;
+      }
     }
 
     @media (min-width: 1024px) {
-      .users-modal {
-        max-width: 650px;
+      .users-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
       }
     }
 
@@ -861,7 +839,8 @@
       </button>
     </nav>
 
-    <div id="dashboardContent">
+    <!-- Dashboard Tab -->
+    <div class="tab-content active" id="dashboardContent">
       <div class="stats-grid" id="statsGrid">
         <div class="stat-card accent">
           <div class="label">Total</div>
@@ -962,50 +941,42 @@
         </button>
       </div>
     </div>
-  </div>
 
-</div>
-
-<div class="users-modal-overlay" id="usersModalOverlay" onclick="closeUsersModal(event)">
-  <div class="users-modal" onclick="event.stopPropagation()">
-    <div class="users-modal-header">
-      <h3>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-          <circle cx="9" cy="7" r="4"/>
-          <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-          <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-        </svg>
-        All Users
-      </h3>
-      <button class="close-modal-btn" onclick="closeUsersModal()">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-          <line x1="18" y1="6" x2="6" y2="18"/>
-          <line x1="6" y1="6" x2="18" y2="18"/>
-        </svg>
-      </button>
-    </div>
-    
-    <div class="search-filter-bar">
-      <div class="search-box">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <circle cx="11" cy="11" r="8"/>
-          <line x1="21" y1="21" x2="16.65" y2="16.65"/>
-        </svg>
-        <input type="text" id="searchInput" placeholder="Search..." oninput="filterUsers()">
+    <!-- All Users Tab -->
+    <div class="tab-content" id="allUsersContent">
+      <div class="users-section-header">
+        <h3>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+          All Users
+        </h3>
       </div>
-      <select class="filter-select" id="filterStatus" onchange="filterUsers()">
-        <option value="all">All</option>
-        <option value="active">Active</option>
-        <option value="blocked">Blocked</option>
-        <option value="expired">Expired</option>
-      </select>
-    </div>
-    
-    <div class="users-modal-body">
+      
+      <div class="search-filter-bar">
+        <div class="search-box">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+          <input type="text" id="searchInput" placeholder="Search by ID, name or key..." oninput="filterUsers()">
+        </div>
+        <select class="filter-select" id="filterStatus" onchange="filterUsers()">
+          <option value="all">All Status</option>
+          <option value="active">Active</option>
+          <option value="blocked">Blocked</option>
+          <option value="expired">Expired</option>
+        </select>
+      </div>
+      
       <div class="users-grid" id="userList"></div>
     </div>
+
   </div>
+
 </div>
 
 <script>
@@ -1132,22 +1103,16 @@ function logout() {
 function showDashboard() {
   document.getElementById('dashboardBtn').classList.add('active');
   document.getElementById('allUsersBtn').classList.remove('active');
-  document.getElementById('dashboardContent').style.display = 'block';
-  document.getElementById('usersModalOverlay').classList.remove('active');
+  document.getElementById('dashboardContent').classList.add('active');
+  document.getElementById('allUsersContent').classList.remove('active');
 }
 
 function showAllUsers() {
   document.getElementById('dashboardBtn').classList.remove('active');
   document.getElementById('allUsersBtn').classList.add('active');
-  document.getElementById('usersModalOverlay').classList.add('active');
+  document.getElementById('dashboardContent').classList.remove('active');
+  document.getElementById('allUsersContent').classList.add('active');
   renderUsers();
-}
-
-function closeUsersModal(event) {
-  if (event && event.target !== event.currentTarget) return;
-  document.getElementById('usersModalOverlay').classList.remove('active');
-  document.getElementById('dashboardBtn').classList.add('active');
-  document.getElementById('allUsersBtn').classList.remove('active');
 }
 
 function saveUser() {
@@ -1204,7 +1169,7 @@ function loadUsers() {
   db.ref("licenses").on("value", function(snapshot) {
     usersData = snapshot.val() || {};
     updateStats();
-    if (document.getElementById('usersModalOverlay').classList.contains('active')) {
+    if (document.getElementById('allUsersContent').classList.contains('active')) {
       renderUsers();
     }
   });
@@ -1283,7 +1248,7 @@ function renderUsers() {
     html += '<div class="user-card' + (isExpired ? ' expired' : '') + '">';
     html += '<div class="user-header">';
     html += '<span class="user-id" onclick="copyToClipboard(\'' + id + '\')">' + id + '</span>';
-    html += '<div style="display:flex;gap:6px;align-items:center;">';
+    html += '<div class="user-badges">';
     html += '<span class="plan-badge ' + plan + '">' + getPlanDisplayName(plan) + '</span>';
     html += '<span class="status-badge ' + (user.status === 'active' ? 'active' : 'blocked') + '">' + user.status + '</span>';
     html += '</div></div>';
@@ -1441,7 +1406,7 @@ function editUser(id) {
   const user = usersData[id];
   if (!user) return;
   
-  closeUsersModal();
+  showDashboard();
   
   document.getElementById('deviceId').value = id;
   document.getElementById('name').value = user.name || '';
@@ -1489,10 +1454,6 @@ document.getElementById('password').addEventListener('keypress', function(e) {
 
 document.getElementById('email').addEventListener('keypress', function(e) {
   if (e.key === 'Enter') document.getElementById('password').focus();
-});
-
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') closeUsersModal();
 });
 </script>
 
